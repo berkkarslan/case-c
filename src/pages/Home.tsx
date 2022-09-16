@@ -1,5 +1,6 @@
 import React from 'react'
 import FormTable from '../components/FormTable'
+import Card from '../components/Card'
 const Home: React.FC = () => {
   const data: MyForm[] = [
     {
@@ -17,7 +18,9 @@ const Home: React.FC = () => {
   return (
     <div>
       <h1>Home</h1>
-      <FormTable data={data} />
+      <Card>
+        <FormTable data={data} />
+      </Card>
     </div>
   )
 }

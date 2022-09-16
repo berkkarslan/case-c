@@ -24,7 +24,7 @@ const FormTable: React.FC<Props> = ({ data }) => {
 
   return (
     <>
-      <div className='d-flex justify-content-between pt-3'>
+      <div className='d-flex justify-content-between'>
         <button className='btn btn-primary'>Create New Form</button>
         <div>
           <input
