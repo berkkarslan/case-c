@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Card from '../components/Card'
 import FormGenerator from '../components/FormGenerator'
+import { findData } from '../store'
 
 const Home: React.FC = () => {
   const { formName } = useParams()
@@ -9,8 +10,8 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     if (formName) {
-      // const data = findData(formName)
-      // setData(data)
+      const data = findData(formName)
+      setData(data)
     }
   }, [formName])
   if (!data) {
