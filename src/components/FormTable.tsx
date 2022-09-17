@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Modal } from 'react-bootstrap'
+import AddModal from './AddForm'
 
 interface Props {
   data: MyForm[]
@@ -7,10 +9,11 @@ interface Props {
 const FormTable: React.FC<Props> = ({ data }) => {
   const navigate = useNavigate()
   const [search, setSearch] = useState('')
+  const [show, setShow] = useState(false)
   const filteredData = data.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()))
 
   const row = (item: MyForm) => (
-    <tr>
+    <tr key={item.name}>
       <td>{item.name}</td>
       <td>{item.description}</td>
       <td>{item.createdAt}</td>
@@ -25,7 +28,9 @@ const FormTable: React.FC<Props> = ({ data }) => {
   return (
     <>
       <div className='d-flex justify-content-between'>
-        <button className='btn btn-primary'>Create New Form</button>
+        <button onClick={() => setShow(true)} className='btn btn-primary'>
+          Create New Form
+        </button>
         <div>
           <input
             type='text'
@@ -56,6 +61,9 @@ const FormTable: React.FC<Props> = ({ data }) => {
           )}
         </tbody>
       </table>
+      <Modal show={show} size='xl' onHide={() => setShow(false)}>
+        <AddModal />
+      </Modal>
     </>
   )
 }

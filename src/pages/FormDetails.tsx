@@ -1,19 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Card from '../components/Card'
 import FormGenerator from '../components/FormGenerator'
 
 const Home: React.FC = () => {
   const { formName } = useParams()
-  const data = {
-    name: 'Test form',
-    description: 'Uye bilgi formu',
-    createdAt: '2017-01-08',
-    fields: [
-      { required: true, name: 'Ad', dataType: 'STRING' },
-      { required: true, name: 'Soyad', dataType: 'STRING' },
-      { required: false, name: 'Yaş', dataType: 'NUMBER' },
-    ],
+  const [data, setData] = useState<MyForm>()
+
+  useEffect(() => {
+    if (formName) {
+      // const data = findData(formName)
+      // setData(data)
+    }
+  }, [formName])
+  if (!data) {
+    return (
+      <div>
+        <h2>Form bulunamadı..</h2>
+      </div>
+    )
   }
 
   return (
