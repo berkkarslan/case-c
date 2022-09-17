@@ -10,6 +10,7 @@ const FormGenerator: React.FC<Props> = ({ fields }) => {
           <div key={field.name} className='form-group'>
             <label htmlFor={field.name}>{field.name}</label>
             <input
+              required={field.required}
               type={field.dataType === 'NUMBER' ? 'number' : 'text'}
               className='form-control'
               id={field.name}
