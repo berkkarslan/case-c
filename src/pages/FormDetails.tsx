@@ -18,6 +18,7 @@ const Home: React.FC = () => {
     return (
       <div>
         <h2>Form bulunamadı..</h2>
+        <div>{location.pathname}</div>
       </div>
     )
   }
