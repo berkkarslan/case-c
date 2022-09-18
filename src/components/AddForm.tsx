@@ -15,10 +15,10 @@ const AddModal: React.FC<Props> = ({ onEnd }) => {
   ]
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
-  const [fields, setFields] = useState<Field[]>([{ name: '', required: false, dataType: '' }])
+  const [fields, setFields] = useState<Field[]>([{ name: '', required: false, dataType: 'STRING' }])
 
   const addNewRow = () => {
-    setFields([...fields, { name: '', required: false, dataType: '' }])
+    setFields([...fields, { name: '', required: false, dataType: 'STRING' }])
   }
 
   const deleteRow = (index: number) => {
@@ -113,7 +113,7 @@ const AddModal: React.FC<Props> = ({ onEnd }) => {
                         <Select
                           options={dataTypeOptions}
                           value={
-                            field.dataType === 'string' ? dataTypeOptions[1] : dataTypeOptions[0]
+                            field.dataType === 'STRING' ? dataTypeOptions[0] : dataTypeOptions[1]
                           }
                           onChange={(val) => {
                             const values = [...fields]
